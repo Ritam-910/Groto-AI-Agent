@@ -1,0 +1,50 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ai_agent_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  ollama-setup:
+    image: ollama/ollama:latest
+    container_name: ai_agent_ollama_setup
+    depends_on:
+      - ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: [ "/bin/sh", "-c" ]
+    command:
+      - |
+        echo "Waiting for Ollama service..."
+        sleep 10
+
+        # Check if model already exists
+        if ollama list | grep -q "phi3:latest"; then
+          echo "Model phi3:latest already exists, skipping download"
+        else
+          echo "Pulling phi3:latest model..."
+          ollama pull phi3:latest
+          echo "Model pulled successfully!"
+        fi
+    restart: "no"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: ai_agent_backend
+    ports:
+      - "8000:8000"
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    depends_on:
+      ollama-setup:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
