@@ -1,59 +1,56 @@
-# 🤖 Groto AI Agent
+# Groto AI Agent
 
-<div align="center">
+## Introduction
+Groto AI Agent is a powerful AI-driven application designed to facilitate tasks and enhance productivity. It utilizes advanced algorithms and models to provide users with intelligent responses and guidance.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Ritam--910/Groto--AI--Agent-blue?logo=github)](https://github.com/Ritam-910/Groto-AI-Agent)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009485?logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)]()
+## Architecture
+The architecture of Groto AI Agent is built around the following components:
+- **Frontend**: A user-friendly interface for interaction.
+- **Backend**: Handles API requests and processes user data.
+- **AI Engine**: The core component that makes intelligent decisions based on user input.
 
-An intelligent AI agent built with **LangGraph**, **FastAPI**, and **Ollama** for powerful conversational experiences powered by local LLMs.
+## Features
+- **Natural Language Processing**: Understands user queries in natural language.
+- **Task Automation**: Automates routine tasks to save time.
+- **Analytics Dashboard**: Provides insights into user interactions and performance metrics.
 
-</div>
-
----
-
-## ✨ Features
-
-- **🚀 FastAPI Backend** - High-performance REST API framework
-- **🧠 LangGraph Integration** - Advanced agent orchestration and graph-based workflows
-- **🦙 Ollama Support** - Run local language models efficiently
-- **📦 Docker Containerized** - Easy deployment with Docker & Docker Compose
-- **🔌 Modular Architecture** - Clean separation of concerns (agent, models, frontend)
-- **⚡ Async Support** - Built for high concurrency with async/await patterns
-
----
-
-## 📋 Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [API Endpoints](#api-endpoints)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
-## 🔧 Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Python** 3.8 or higher
-- **Docker** & **Docker Compose** (for containerized setup)
-- **Git**
-
----
-
-## 📥 Installation
-
-### Option 1: Local Setup
-
-1. **Clone the repository**
+## Installation
+To install Groto AI Agent, follow these steps:
+1. Clone the repository:
    ```bash
    git clone https://github.com/Ritam-910/Groto-AI-Agent.git
+   ```
+2. Navigate to the project directory:
+   ```bash
    cd Groto-AI-Agent
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the application:
+   ```bash
+   npm run start
+   ```
+
+## API Endpoints
+- **GET /api/status**: Returns the current status of the API.
+- **POST /api/query**: Sends user queries and receives responses. 
+  - **Request Body**: `{ "query": "your question here" }`
+  - **Response**: `{ "response": "AI generated response" }`
+
+## Usage Examples
+### Example 1: Check API Status
+To check the status of the API, you can use the following command:
+```bash
+curl -X GET http://localhost:3000/api/status
+```
+
+### Example 2: Sending a Query
+To send a query to the AI agent, use:
+```bash
+curl -X POST http://localhost:3000/api/query -H 'Content-Type: application/json' -d '{"query": "What is the weather today?"}'
+```
+
+## Conclusion
+Groto AI Agent is a robust solution for automating tasks and enhancing productivity through intelligent responses. For more details, explore the API documentation or check out the source code in this repository.
