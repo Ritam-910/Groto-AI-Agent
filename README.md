@@ -1,4 +1,4 @@
-# 🤖 AI Agent with Tools
+# 🤖 Groto
 
 A powerful, local AI agent featuring real-time web search, calculator, time tools, and a modern UI. This project combines a **FastAPI** backend with a sleek **Vanilla JS** frontend, powered by **Ollama** for local LLM inference.
 
